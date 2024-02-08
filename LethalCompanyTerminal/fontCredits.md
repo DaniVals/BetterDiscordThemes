@@ -1,1 +1,1 @@
-[Original Font](https://github.com/rbanffy/3270font?tab=readme-ov-file)
+[Original Font](https://github.com/rbanffy/3270font?tab=readme-ov-file) by [rbanffy](https://github.com/rbanffy)
