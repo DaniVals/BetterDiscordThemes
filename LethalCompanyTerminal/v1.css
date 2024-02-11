@@ -1,0 +1,385 @@
+/*
+ * @name Lethal Company terminal
+ * @author videosboy
+ * @description The terminal from Lethal Company comes to discord through this theme
+ * @version 1.0.0
+*/
+
+/*
+TODO popup
+    mensaje fijado
+    buscar
+    setting/right click
+    buscar conversacion (arriba en los mds)
+    descripcion canal
+    usuario card
+    upload archivo '+'/deslizar
+TODO barritas buscar
+TODO amigos
+TODO menu opciones
+TODO hover cuadrados en canales del servidos
+TODO al escribir
+   censored
+   atachements
+   icons (borrar, censurar, editar)
+   barrita al poner un atachement
+TODO estas viendo mensajes antiguos/ 1 nuevo mensage sin leer/ respondiendo a ...
+
+TRY texto 'Alias'
+TRY svg custom
+*/
+@font-face {
+    font-family: 'IBM 3270';
+    src: url(https://raw.githubusercontent.com/DaniVals/BetterDiscordThemes/main/LethalCompanyTerminal/3270-Regular.ttf) format('opentype');
+}
+:root,.theme-dark,.theme-light{
+    
+    /* COLORES BASE JUEGO */
+    --menu-red: #ED0000; /* logo */
+    --menu-orange-back: #FC2800; /* background of button */
+    --menu-orange-text: #FE4400; /* text */
+    --menu-orange-deco: #471100; /* corner decoration */
+    --menu-green: #00B11D; /* accesory icon */
+    --menu-green-dark: #007117; /* accesory icon decoration */
+    --menu-green-semi: #00711755; /* accesory icon background */
+
+    --interfaze-blue-light: #7FBFC6; /* start game 'waiting for crew' */
+    --interfaze-blue: #1A1457; /* item square */
+    --interfaze-red:  #F44B39; /* 'spectating' */
+
+    --monitor-blue-ligh: #03E4FA; /* door color */
+    --monitor-blue-intense: #005BFE; /* player  */
+    --monitor-yellow: #BEEA01; /* scrap */
+    --monitor-green: #07D103; /* sentry */
+    --monitor-red: #FC1A01; /* enemy */
+
+    --pause-orange: #FF6E01; /* background hover 'Resume' */
+    --pause-yellow: #FF9201; /* player list 'CREW:' */
+    --pause-brown:  #A53601; /* player background (the name of the player)*/
+
+    --terminal-green-dark: #013501; /* terminal slidebar */
+    --terminal-green: #01FC01; /* terminal text (balance)*/
+    --terminal-clear: #373A36; /* terminal background */
+    --terminal-light: #272826; /* terminal background */
+    --terminal-normal:#1A1C1B; /* terminal background */
+    --terminal-dark:  #0F1110; /* terminal background */
+
+    --spectate-gray: #8D8D8B; /* parte gris menu espectador */
+    --spectate-white: #BFBFBE; /* parte blanca menu espectador */
+
+    /* otros */
+    --font: 'IBM 3270';
+
+    /* variables modificables */
+    --MD-content: var(--terminal-green);
+    --MD-username: var(--spectate-white);
+    --MD-background: var(--terminal-clear);
+
+    --MD-sendText: var(--terminal-green);
+    --MD-sendBackground:var(--terminal-light);
+    --MD-loading-text:var(--terminal-green); /* has transparency applied */
+
+    --MD-reply-content: var(--pause-yellow);
+    --MD-reply-username: var(--spectate-white);
+
+    --MD-info-sentdate: var(--spectate-gray);
+    --MD-info-chatdate: var(--spectate-white);
+    --MD-info-edited: var(--spectate-gray);
+    --MD-info-writting: var(--interfaze-blue-light);
+
+    --MD-spoiler-close: var(--terminal-normal);
+    --MD-spoiler-open: #00000000;
+    --MD-mention-text: var(--interfaze-blue-light);
+    --MD-mention-background: var(--interfaze-blue);
+    --MD-mention-message: var(--menu-green-semi);
+    --MD-mention-border: var(--menu-green-dark);
+
+
+
+    --userlist-background: var(--terminal-light);
+    --userlist-category: var(--menu-orange-text);
+    --userlist-name-default-online: var(--terminal-green);
+    --userlist-name-default-offline: var(--spectate-gray);
+    --userlist-description: var(--menu-green-dark);
+    --userlist-border-color-offline: var(--spectate-white);
+    --userlist-border-color-online: var(--terminal-green);
+    --userlist-border-width: 1px;
+    --userlist-status-width: 5px;
+
+    --scrollbar: var(--terminal-green);
+    --scrollbar-background:#00000000;
+    --scrollbar-border-color:var(--terminal-green-dark);
+    --scrollbar-border-width: 2px;
+
+    --popup-info-text: var(--monitor-blue-ligh);
+    --popup-info-background: var(--terminal-normal);
+    --popup-info-border-color:var(--monitor-blue-intense);
+    --popup-info-border-width: 1px;
+
+    --popup-server-text: var(--menu-orange-text);
+    --popup-server-background: var(--menu-orange-deco);
+    --popup-server-border-color:var(--menu-orange-back);
+    --popup-server-border-width: 1px;
+    --popup-server-user-border-color:var(--menu-orange-back);
+    --popup-server-user-border-width: 1px;
+    --popup-server-user-margin: 1px;
+}
+
+/*
+-------------------------------------------FONDOS---------------------------------------------------------
+*/
+.bg__12180 /* fondo de toda la app*/
+{
+    background-color: var(--terminal-dark);
+}
+/* poner bordes cuadrados */
+.avatar__08316.clickable_d866f1, /* chat avatars */
+.avatar__6337f foreignObject /* member list avatar*/
+{
+    border-radius: 0px;
+    mask: none;
+    mask-image: none;
+}
+/* ==== PROFILE PICTURES ==== */
+/* member list */
+.memberInner_a32223.layout_bb8e67 .mask__1979f.svg_f5b652 rect,
+.cursorDefault_e4f616 rect
+{
+    border-radius: 0px;
+    mask: none;
+    mask-image: none;
+}
+.memberInner_a32223.layout_bb8e67 .wrapper_edb6e0 svg rect:last-child /* rectangulo normal */
+{
+    transform: translate(10px, -26px);
+    height: 36px;
+    width: var(--userlist-status-width);    
+}
+.memberInner_a32223.layout_bb8e67 .wrapper_edb6e0 .pointerEvents__33f6a /* rectangulo escribiendo */
+{
+    transform: translate(17.5px, -26px);
+    height: 36px;
+    width: var(--userlist-status-width); 
+}
+.memberInner_a32223.layout_bb8e67 .wrapper_edb6e0[aria-label*="móvil"] .pointerEvents__33f6a,
+/* circulitos */
+.dots_a97068 circle{
+    color: #00000000;
+}
+/* ==== messages atachements ==== */
+/* fotos */
+.container_dbadf5 div,
+/* gifs */
+.container_dbadf5 video,
+/* archivos como un mp3 */
+.wrapperAudio__555ce.wrapper__3a7a0.newMosaicStyle_fb18b9.embedWrapper_c143d9.attachmentContentItem_ef9fc2,
+/* enlaces con reborde como yt */
+.embedWrapper_c143d9.embedFull__8dc21.embed_d3cbe3.markup_a7e664,
+.embedVideo__0c65b.embedMedia_b473d2 img,
+/* default*/
+.messageAttachment_b97504.messageAttachmentFullWidth__89ab6.messageAttachmentMediaMosaic__65bfc div
+{ 
+    border-radius: 0px;
+}
+/*
+-------------------------------------------TEXTOS------------------------------------------------------------
+*/
+.markup_a7e664.messageContent__21e69, /* mensages */
+[class^="text"],
+[class^="name"],
+[class^="header"],
+[class^="description"],
+[class^="info"],
+[class^="item"],
+[class^="icon"],
+[class^="placeholder"],
+[class^="label"],
+.membersGroup__85843.container_de798d, /* 'miembros' grupos de MD*/
+[class^="container"],
+[class^="tooltipContent"],
+[class^="container"] span
+{
+    font-family: var(--font) !important;
+}
+[class^="placeholder"] /* color de textos como 'Enviar mensaje a'*/
+{
+    color: var(--semi-green);
+}
+/*
+-----------------------------CUSTOMIZED--------------------------
+
+
+==================== CHAT ====================
+
+/* chat principal */
+.username_d30d99.desaturateUserColors_b72bd3.clickable_d866f1{
+    color: var(--MD-username); font-size: larger; font-weight: bold;}
+.markup_a7e664.messageContent__21e69,
+.markup_a7e664.messageContent__21e69 h1,
+.markup_a7e664.messageContent__21e69 h2,
+.markup_a7e664.messageContent__21e69 h3{
+    color: var(--MD-content);}
+.chatContent__5dca8, .wrapper__3d460, .wrapper__3d460 .wrapper__5c5cd.cozy__32560{
+    background-color: var(--MD-background);}
+.timestamp_cdbd93.timestampInline__470e0{
+    color: var(--MD-info-sentdate);}
+.divider__8cf56.hasContent__8519e.divider_b9338f.hasContent_fea365{ /* la barrita de la fecha*/
+    background-color: var(--MD-info-chatdate);}
+.content_d67847{ /* la propia fecha */
+    color: var(--MD-info-chatdate); background-color: var(--MD-background);}
+.edited_b20dd9{
+    color: var(--MD-info-edited);}
+
+/* barra enviar mensaje */
+.scrollableContainer__33e06.themedBackground__6b1b6.webkit__8d35a{
+    border-radius: 0px; background-color: var(--MD-sendBackground);}
+.scrollableContainer__33e06.themedBackground__6b1b6.webkit__8d35a span, /* texto escrito */
+.placeholder_e68c63.slateTextArea__0661c.fontSize16Padding__48818, /* 'enviar mensaje a' */
+.form__13a2c svg, /* icono regalo, gif y sticker */
+.form__13a2c path /* icono + */
+{color: var(--MD-sendText); fill: var(--MD-sendText);}
+.sprite__294b3.spriteGreyscale__7b70f.active__6a892
+{background-color: var(--MD-sendText);}
+.form__13a2c{
+    width: 100%; transform: translate(-16px, 0px); background-color: var(--MD-sendBackground);}
+.text_ca54e9{
+    color: var(--MD-info-writting);
+}
+
+/* responder mensajes */
+.repliedMessage_e2bf4a .username_d30d99.desaturateUserColors_b72bd3.clickable_d866f1{
+    color: var(--MD-reply-username); font-size: larger; font-weight: bold;}
+.repliedTextPreview__90311.clickable_d866f1{
+    color: var(--MD-reply-content);}
+.message__80c10.cozyMessage__64ce7.mentioned__58017.groupStart__56db5.wrapper__09ecc.cozy_f5c119.zalgo__39311.hasReply_febd50{
+    background-color: var(--MD-mention-message);
+}
+.message__80c10.cozyMessage__64ce7.mentioned__58017.groupStart__56db5.wrapper__09ecc.cozy_f5c119.zalgo__39311.hasReply_febd50::before{
+    background-color: var(--MD-mention-border);
+}
+
+/* otros (texto spoiler / @mention) */
+.spoilerContent__37bfa.spoilerMarkdownContent__2b8f8{
+    background-color: var(--MD-spoiler-open);
+    border-radius: 0px;}
+.spoilerContent__37bfa.spoilerMarkdownContent__2b8f8.hidden_f44e41{
+    background-color: var(--MD-spoiler-close);
+    border-radius: 0px;}
+/* menciones */
+.mention.wrapper_f46140.interactive{
+    color: var(--MD-mention-text);
+    background-color: var(--MD-mention-background);
+    border-radius: 0px;
+}
+/* cuadraditos cargar MD */
+.blob__8d5bd,
+.avatar_eb6eba,
+.attachment__7a2d0
+{
+    background-color: var(--MD-loading-text);
+    border-radius: 0px;
+}
+
+
+
+/* 
+==================== MEMBER LIST ====================
+ */
+
+.members__9f47b.thin_b1c063.scrollerBase_dc3aa9.fade_ba0fa0,
+.container_b2ce9c{
+    background-color: var(--userlist-background); z-index: +1;}
+.membersGroup__85843.container_de798d{
+    color: var(--userlist-category); letter-spacing: 2px;}
+.username_d272d6.desaturateUserColors_b72bd3{
+    color: var(--userlist-name-default-online);}
+.member_aa4760.offline_c1fd80.container__4f20e.clickable__17ccb .username_d272d6.desaturateUserColors_b72bd3{
+    color: var(--userlist-name-default-offline);}
+.activity__3cbac div,
+.activity__3cbac svg{
+    color: var(--userlist-description);}
+.memberInner_a32223.layout_bb8e67{
+    border-radius: 0px;
+    border-style: solid;
+    border-width: var(--userlist-border-width);
+    border-color: var(--userlist-border-color-online);}
+.member_aa4760.offline_c1fd80.container__4f20e.clickable__17ccb .memberInner_a32223.layout_bb8e67{
+    border-color: var(--userlist-border-color-offline);}
+.member_aa4760.container__4f20e[aria-expanded="true"] .memberInner_a32223.layout_bb8e67{
+    border-radius: 0px;
+    border-style: solid;
+    border-width: var(--userlist-border-width);
+    border-color: var(--spectate-white);}
+/*
+==================== POP UP MENU ====================
+*/
+/* hacer flechita pop ups invisible */
+.tooltipPointer_a79354{
+    opacity: 0;
+}
+/* info */
+.tooltip__01384.tooltipTop__5f583{
+    background-color: var(--popup-info-background);
+    border-radius: 0px;
+    border-style: solid;
+    border-width: var(--popup-info-border-width);
+    border-color: var(--popup-info-border-color);}
+.tooltip__01384.tooltipTop__5f583 .tooltipContent__79a2d{
+    color: var(--popup-info-text);
+}
+/* server preview */
+.tooltip__01384.tooltipRight_e5fa1c .tooltipContent__79a2d{
+    background-color: var(--popup-server-background);
+    border-radius: 0px;
+    border-style: solid;
+    border-width: var(--popup-server-border-width);
+    border-color: var(--popup-server-border-color);}
+.tooltip__01384.tooltipRight_e5fa1c .tooltipContent__79a2d .row__8f131.rowGuildName__29d8a span,
+.tooltip__01384.tooltipRight_e5fa1c .tooltipContent__79a2d .row__8f131 svg,
+.tooltip__01384.tooltipRight_e5fa1c .tooltipContent__79a2d{
+    color: var(--popup-server-text);}
+/* avatares */
+.tooltip__01384.tooltipRight_e5fa1c .tooltipContent__79a2d .row__8f131 .container_a4480b.size24_f4a88d foreignObject{
+    mask: none;}
+.tooltip__01384.tooltipRight_e5fa1c .tooltipContent__79a2d .row__8f131 .container_a4480b.size24_f4a88d svg{
+    margin-right: var(--popup-server-user-margin);}
+.tooltip__01384.tooltipRight_e5fa1c .tooltipContent__79a2d .row__8f131 .container_a4480b.size24_f4a88d .moreUsers_cd5dfc{ /* +n users in the call*/
+    color: var(--popup-server-text);
+    background-color: var(--popup-server-background);
+    width: 10%;
+    font-size: medium;
+    font-weight: bold;
+
+    border-style: solid;
+    border-radius: 0px;
+    border-width: var(--popup-server-user-border-width);
+    border-color: var(--popup-server-user-border-color);
+    box-sizing: border-box;
+}
+.tooltip__01384.tooltipRight_e5fa1c .tooltipContent__79a2d .row__8f131 .container_a4480b.size24_f4a88d img{
+    border-style: solid;
+    border-radius: 0px;
+    border-width: var(--popup-server-user-border-width);
+    border-color: var(--popup-server-user-border-color);
+    box-sizing: border-box;
+}
+/*
+==================== SIDEBARS ====================
+*/
+.app_b1f720 ::-webkit-scrollbar-thumb
+{
+    background-color: var(--scrollbar);
+    border-radius: 0px;
+}
+.app_b1f720 ::-webkit-scrollbar-track
+{
+    border-radius: 0px;
+    border-width: var(--scrollbar-border-width);
+    border-color: var(--scrollbar-border-color);
+    background-color: var(--scrollbar-background);
+}
+.scrollableContainer__33e06.themedBackground__6b1b6.webkit__8d35a::-webkit-scrollbar-track /* poner transparente scrollbar en 'enviar mensaje'*/
+{
+    border-width: 0px !important;
+    background-color: #00000000 !important;
+}
