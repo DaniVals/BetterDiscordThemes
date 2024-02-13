@@ -31,6 +31,7 @@ TODO perfil MD
     servidores en comun
     amigos en comun
 
+TODO hover
 TRY texto 'Alias'
 TRY svg custom
 */
@@ -45,6 +46,7 @@ TRY svg custom
     --menu-orange-back: #FC2800; /* background of button */
     --menu-orange-text: #FE4400; /* text */
     --menu-orange-deco: #471100; /* corner decoration */
+    --menu-black-background: #000000; /* background*/
     --menu-green: #00B11D; /* accesory icon */
     --menu-green-dark: #007117; /* accesory icon decoration */
     --menu-green-semi: #00711755; /* accesory icon background */
@@ -91,7 +93,7 @@ TRY svg custom
     --MD-loading-text:var(--terminal-green); /* has transparency applied */
 
     --MD-reply-content: var(--pause-yellow);
-    --MD-reply-username: var(--interface-white);
+    --MD-reply-username: var(--pause-yellow);
 
     --MD-info-sentdate: var(--interface-gray);
     --MD-info-chatdate: var(--interface-white);
@@ -112,6 +114,18 @@ TRY svg custom
     --MD-profile-banner-panel-border-color: var(--terminal-green);
     --MD-profile-banner-panel-border-width: 1px;
     --MD-profile-banner-status-width: 10px;
+
+    --MD-list-background: var(--menu-black-background);
+    --MD-list-header: var(--menu-orange-back);
+    --MD-list-user-background: var(--menu-orange-deco);
+    --MD-list-user-name: var(--menu-orange-back);
+    --MD-list-user-border-color: var(--menu-orange-back);
+    --MD-list-user-selected-background: var(--terminal-back1);
+    --MD-list-user-selected-name: var(--terminal-green);
+    --MD-list-user-selected-border-color: var(--menu-orange-text);
+    --MD-list-user-margin: 5px;
+    --MD-list-user-border-width: 1px;
+    --MD-list-user-status-width: 5px;
 
 
     --userlist-background: var(--terminal-back3);
@@ -256,7 +270,7 @@ TRY svg custom
 
 /* responder mensajes */
 .repliedMessage_e2bf4a .username_d30d99.desaturateUserColors_b72bd3.clickable_d866f1{
-    color: var(--MD-reply-username); font-size: larger; font-weight: bold;}
+    color: var(--MD-reply-username); font-size: larger; font-weight: bold; opacity: 1;}
 .repliedTextPreview__90311.clickable_d866f1{
     color: var(--MD-reply-content);}
 .message__80c10.cozyMessage__64ce7.mentioned__58017.groupStart__56db5.wrapper__09ecc.cozy_f5c119.zalgo__39311.hasReply_febd50{
@@ -346,6 +360,59 @@ TRY svg custom
 }
 
 
+
+/* 
+==================== MD LIST ====================
+
+    --MD-list-user-selected-background: var(--terminal-back1);
+    --MD-list-user-selected-name: var(--terminal-green);
+    --MD-list-user-selected-border-color: var(--terminal-green);
+
+*/
+.scroller__4b984.thin_b1c063.scrollerBase_dc3aa9.fade_ba0fa0 {
+    background-color: var(--MD-list-background);
+}
+.scroller__4b984.thin_b1c063.scrollerBase_dc3aa9.fade_ba0fa0 .privateChannelsHeaderContainer_ddcec6.container_de798d,
+.scroller__4b984.thin_b1c063.scrollerBase_dc3aa9.fade_ba0fa0 .privateChannelsHeaderContainer_ddcec6.container_de798d svg{
+    color: var(--MD-list-header);
+}
+.scroller__4b984.thin_b1c063.scrollerBase_dc3aa9.fade_ba0fa0 .channel_c21703.container__8759a{
+    background-color: var(--MD-list-user-background);
+
+    margin-bottom: var(--MD-list-user-margin);
+    border-radius: 0px;
+    border-style: solid;
+    border-width: var(--MD-list-user-border-width);
+    border-color: var(--MD-list-user-border-color);
+}
+.scroller__4b984.thin_b1c063.scrollerBase_dc3aa9.fade_ba0fa0 .channel_c21703.container__8759a:has(> .interactive__776ee.interactive_a868bc.interactiveSelected_ec846b.selected_d94cf9){
+    background-color: var(--MD-list-user-selected-background);
+    
+    border-radius: 0px;
+    border-style: solid;
+    border-width: var(--MD-list-user-border-width);
+    border-color: var(--MD-list-user-selected-border-color);
+}
+.scroller__4b984.thin_b1c063.scrollerBase_dc3aa9.fade_ba0fa0 .channel_c21703.container__8759a .content_f767b8,
+.scroller__4b984.thin_b1c063.scrollerBase_dc3aa9.fade_ba0fa0 .channel_c21703.container__8759a .closeButton__8f1fd svg{
+    color: var(--MD-list-user-name);
+}
+/* profile picture */
+.scroller__4b984.thin_b1c063.scrollerBase_dc3aa9.fade_ba0fa0 .channel_c21703.container__8759a .mask__1979f.svg_f5b652 foreignObject{
+    mask: none;
+    /*
+    transform: translate(20px, -60px);
+    height: 80px;
+    width: var(--MD-profile-banner-status-width);
+    */
+}
+.scroller__4b984.thin_b1c063.scrollerBase_dc3aa9.fade_ba0fa0 .channel_c21703.container__8759a .mask__1979f.svg_f5b652 .pointerEvents__33f6a{
+    mask: none;
+    transform: translate(10px, -22px);
+    height: 32px;
+    width: var(--MD-list-user-status-width);
+}
+/* rectrangulo escribiendo*/
 
 /* 
 ==================== MD PROFILE BANNER ====================
